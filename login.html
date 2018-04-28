@@ -1,0 +1,78 @@
+ <!doctype html>
+  <html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+body{ background:url(homepage-backgrounds-aqua.jpg); }
+</style>
+
+<Script type ="text/javascript">
+function onsubmitt()
+{
+	try
+	{
+		var loginid=document.getElementById("loginid").value;
+		var loginpwd=document.getElementById("loginpwd").value;
+		if(loginid.length<4)
+		{
+			alert("login name required");
+			document.getElementById("loginid").focus();
+			return false;
+		}
+		for(var loop=0;loop<loginid.length;loop++)
+		{
+			var ch=loginid.charAt(loop);
+			if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
+			{
+			}
+			else
+			{
+				alert("Invalid Loginname");
+				document.getElementById("loginid").focus();
+				return false;
+			}
+		}
+		if(loginpwd.length<2)
+		{
+			alert("loginpwd is required");
+			document.getElementById("loginpwd").focus();
+			return false;
+		}
+		var c=confirm(" Are you sure you want to conitnue");
+		if(c==false)
+		return false;
+		else
+		return true;
+	}
+	catch(e)
+	{
+		alert(e);
+		console.log(e);
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<br><br><br><br><br><br>
+<form method="get" action="login" onsubmit=" return onsubmitt()" >
+<table align="center">
+<tr><td>loginid:</td>
+<td><input type="text"  class="form-control" name="loginid" id="loginid"></td>
+</tr>
+<tr>
+<td>loginpwd:</td>
+<td><input  class="form-control" type="password" name="loginpwd" id="loginpwd"></td>
+</tr>
+<tr> 
+<td><input type="submit" class="btn btn-default" value="submit">
+</td></tr>
+</table></form>
+</body>
+</html>
